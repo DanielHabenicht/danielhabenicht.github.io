@@ -13,4 +13,4 @@ COPY . /app
 COPY Gemfile ./
 RUN bundle install
 
-CMD ["jekyll", "serve"]
+CMD jekyll serve --host 0.0.0.0
