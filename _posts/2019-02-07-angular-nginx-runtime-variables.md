@@ -76,15 +76,19 @@ Include the `runtimeEnvironment` in your angular components, services, pipes etc
 
 Thanks for reading. Hope you enjoyed it. ;)
 
-## Appendix 1 - Unit Tests with karma
+## Appendix - Unit Tests with karma
+
+> From [https://stackoverflow.com/a/19263750/9277073](https://stackoverflow.com/a/19263750/9277073)
 
 If you are using the environment variables during your tests you have to mock them by configuring a globals.js and adding it to your test files:
 
-1. Create globals.js
+1. Create a globals.js with your `ENV` variable.
 
-2. Link it in your karma.config.js
+   <script src="http://gist-it.appspot.com/https://github.com/DanielHabenicht/docker-angular-runtime-variables/blob/master/src/globals.js"></script>
 
-> From [https://stackoverflow.com/a/19263750/9277073](https://stackoverflow.com/a/19263750/9277073)
+2. Link the `globals.js` in your karma.config.js, by specifying `files: ["globals.js]`
+
+   <script src="http://gist-it.appspot.com/https://github.com/DanielHabenicht/docker-angular-runtime-variables/blob/master/src/karma.conf.js"></script>
 
 [1]: https://juristr.com/blog/2018/01/ng-app-runtime-config/
 [2]: https://www.technouz.com/4746/how-to-use-run-time-environment-variables-in-angular/
