@@ -16,7 +16,7 @@ It simply lets you set variables in your angular app via Environment variables p
 
 Other guides always want you to load a special file at the app startup. [[1]] [[2]] This does not only defer the startup time by one web request but also makes it harder to just fire up a docker container, as you will have to include the file somehow, by building your own image or mounting it at startup.
 
-Try it out right now by running: `docker run --rm -p 8080:80 -e "TEST_ENV=This really works!" -it danielhabenicht/docker-angular-runtime-variables`. Change the variable to your liking and navigate to [http://localhost:8080](http://localhost:8080).
+Try it out right now by running: `docker run --rm -p 8080:80 -e "TEST_ENV=This really works!" -it danielhabenicht/docker-angular-runtime-variables`. Change the variable to your liking and navigate to [https://localhost:8080](https://localhost:8080).
 
 ## How does it work?
 
@@ -30,13 +30,13 @@ Those two scripts do just that. There are two variations as it depends on your n
 
 This script utilizes the `envsubst` command to replace the variables given. _Throws no error_ if the variable is undefined.
 
-<script src="http://gist-it.appspot.com/https://github.com/DanielHabenicht/docker-angular-runtime-variables/blob/master/substitute_env_variables.sh"></script>
+<script src="https://gist-it.appspot.com/https://github.com/DanielHabenicht/docker-angular-runtime-variables/blob/master/substitute_env_variables.sh"></script>
 
 #### b) For multiple files
 
 Uses some custom `grep`/`sed` logic to replace the variables given. _Throws an error_ if a variable is undefined.
 
-<script src="http://gist-it.appspot.com/https://github.com/DanielHabenicht/docker-angular-runtime-variables/blob/master/substitute_env_variables_multi.sh"></script>
+<script src="https://gist-it.appspot.com/https://github.com/DanielHabenicht/docker-angular-runtime-variables/blob/master/substitute_env_variables_multi.sh"></script>
 
 ### 2. Prepare your angular app
 
@@ -44,11 +44,11 @@ This is kind of hacky but also the most straight forward way:
 
 1. Add the `<script>` Tag to your `index.html` as shown below.
 
-   <script src="http://gist-it.appspot.com/https://github.com/DanielHabenicht/docker-angular-runtime-variables/blob/master/src/index.html"></script>
+   <script src="https://gist-it.appspot.com/https://github.com/DanielHabenicht/docker-angular-runtime-variables/blob/master/src/index.html"></script>
 
 2. Create a `runtimeEnvironment.ts` file in your `src/environments` folder and paste the content.
 
-   <script src="http://gist-it.appspot.com/https://github.com/DanielHabenicht/docker-angular-runtime-variables/blob/master/src/environments/runtimeEnvironment.ts"></script>
+   <script src="https://gist-it.appspot.com/https://github.com/DanielHabenicht/docker-angular-runtime-variables/blob/master/src/environments/runtimeEnvironment.ts"></script>
 
    > We do not use the `environment.ts` file as this does induce some errors with advanced angular apps (especially if use in `.forRoot()` functions), for example:
    >
@@ -64,15 +64,15 @@ While building your docker image you have to copy the script you choose earlier 
 > Attention! The Bash script should have `LF` line endings, otherwise Docker will fail with `exec user process caused "no such file or directory"`
 > If you you are not sure if you have LF ending in your git repository, check out this guide: [https://stackoverflow.com/a/33424884/9277073](https://stackoverflow.com/a/33424884/9277073)
 
-<script src="http://gist-it.appspot.com/https://github.com/DanielHabenicht/docker-angular-runtime-variables/blob/master/Dockerfile"></script>
+<script src="https://gist-it.appspot.com/https://github.com/DanielHabenicht/docker-angular-runtime-variables/blob/master/Dockerfile"></script>
 
 ### 4. Use the Variables in you app
 
 Include the `runtimeEnvironment` in your angular components, services, pipes etc.. For example:
 
-<script src="http://gist-it.appspot.com/https://github.com/DanielHabenicht/docker-angular-runtime-variables/blob/master/src/app/app.component.ts"></script>
+<script src="https://gist-it.appspot.com/https://github.com/DanielHabenicht/docker-angular-runtime-variables/blob/master/src/app/app.component.ts"></script>
 
-<script src="http://gist-it.appspot.com/https://github.com/DanielHabenicht/docker-angular-runtime-variables/blob/master/src/app/app.component.html"></script>
+<script src="https://gist-it.appspot.com/https://github.com/DanielHabenicht/docker-angular-runtime-variables/blob/master/src/app/app.component.html"></script>
 
 Thanks for reading. Hope you enjoyed it. ;)
 
@@ -84,11 +84,11 @@ If you are using the environment variables during your tests you have to mock th
 
 1. Create a globals.js with your `ENV` variable.
 
-   <script src="http://gist-it.appspot.com/https://github.com/DanielHabenicht/docker-angular-runtime-variables/blob/master/src/globals.js"></script>
+   <script src="https://gist-it.appspot.com/https://github.com/DanielHabenicht/docker-angular-runtime-variables/blob/master/src/globals.js"></script>
 
 2. Link the `globals.js` in your karma.config.js, by specifying `files: ["globals.js]`
 
-   <script src="http://gist-it.appspot.com/https://github.com/DanielHabenicht/docker-angular-runtime-variables/blob/master/src/karma.conf.js"></script>
+   <script src="https://gist-it.appspot.com/https://github.com/DanielHabenicht/docker-angular-runtime-variables/blob/master/src/karma.conf.js"></script>
 
 [1]: https://juristr.com/blog/2018/01/ng-app-runtime-config/
 [2]: https://www.technouz.com/4746/how-to-use-run-time-environment-variables-in-angular/
