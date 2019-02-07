@@ -23,6 +23,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://danielhabenicht.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 github_username: DanielHabenicht
 show_excerpts: true
+excerpt_separator: <!--more-->
 google_analytics: UA-133820318-1
 
 # Build settings
