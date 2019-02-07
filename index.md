@@ -5,4 +5,4 @@
 layout: home
 ---
 
-Hi
+This is a Blog - at the beginning of its lifespan.

@@ -16,9 +16,7 @@
 title: Daniel Habenicht
 email: daniel-habenicht@outlook.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  Write an awesome description for your new site here... Said Jekyll, but I am not good at this kind of stuff so I will just go on and write another blog post or program something cool.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://danielhabenicht.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 github_username: DanielHabenicht
