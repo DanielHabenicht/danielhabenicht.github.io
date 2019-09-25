@@ -19,11 +19,22 @@ description: >- # this means to ignore newlines until "baseurl:"
   Write an awesome description for your new site here... Said Jekyll, but I am not good at this kind of stuff so I will just go on and write another blog post or program something cool.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://danielhabenicht.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-github_username: DanielHabenicht
-linkedin_username: daniel-habenicht-49bb0417a
+#github_username: DanielHabenicht
+#linkedin_username:
 show_excerpts: true
 excerpt_separator: <!--more-->
 google_analytics: UA-133820318-1
+
+minima:
+  social_links:
+    # twitter: jekyllrb
+    github:  DanielHabenicht
+    # rss: rss
+    # dribbble: jekyll
+    # facebook: jekyll
+    # flickr:   jekyll
+    # instagram: jekyll
+    linkedin: daniel-habenicht-49bb0417a
 
 # Build settings
 markdown: kramdown
