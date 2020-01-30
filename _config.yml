@@ -35,6 +35,8 @@ minima:
     # flickr:   jekyll
     # instagram: jekyll
     linkedin: daniel-habenicht-49bb0417a
+    stackoverflow: 9277073
+    twitter: HabenichtDaniel
 
 # Build settings
 markdown: kramdown
