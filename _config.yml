@@ -25,6 +25,13 @@ show_excerpts: true
 excerpt_separator: <!--more-->
 google_analytics: UA-133820318-1
 
+# Build settings
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  
 minima:
   social_links:
     # twitter: jekyllrb
@@ -37,13 +44,6 @@ minima:
     linkedin: daniel-habenicht-49bb0417a
     stackoverflow: 9277073
     twitter: HabenichtDaniel
-
-# Build settings
-markdown: kramdown
-theme: minima
-plugins:
-  - jekyll-feed
-  - jekyll-sitemap
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
