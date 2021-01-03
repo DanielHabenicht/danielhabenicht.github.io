@@ -6,7 +6,9 @@ categories: [Android]
 tags: [android]
 ---
 
-The Standard Azure Pipelines [Android signing task][1] signs only `*.apk` files. But that`s not what goole wants you to upload. 
+The Standard Azure Pipelines [Android signing task][1] signs only `*.apk` files. But that`s not what google wants you to upload. 
+
+<!--more-->
 
 But there is a simple workaround based on this [Stackoverflow][2]:
 
