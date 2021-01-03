@@ -8,6 +8,10 @@ tags: [magicmirror]
 
 # How to setup Magic Mirror to display your local SolarWatt/KiwiGrid numbers
 
+Display your local solar system numbers, like power drawn from the mains or your solar array, on your magicmirror. 
+
+<!--more-->
+
 > This guide assumes that you already installed your MagicMirror, if not set it up with this [guide](https://docs.magicmirror.builders/getting-started/installation.html).
 
 The finished Interface will look something like this, but lets get started!
