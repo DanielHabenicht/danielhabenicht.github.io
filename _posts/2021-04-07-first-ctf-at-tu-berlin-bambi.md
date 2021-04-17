@@ -8,6 +8,8 @@ tags: [ctf]
 
 This was my first CTF and I will try to explain a vulnerability I fixed and exploited. 
 
+<!--more-->
+
 ## Setup 
 
 During the CTF I connected to the server with VSCode, which meant I had instant access to all files and could edit them without changing between multiple ssh windows with `nano` editors.
