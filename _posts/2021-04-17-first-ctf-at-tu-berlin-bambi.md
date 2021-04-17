@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Report of the BambiCTF of ENOFLAG"
-date: 2021-04-07 20:42:39 +0000
+date: 2021-04-17 20:42:39 +0000
 categories: [blog]
 tags: [ctf]
 ---
