@@ -195,3 +195,4 @@ print(messages.content)
 
 > During the CTF new users where created from other people exploiting the service, which meant that in order to login with all matching regex a new user had to be created each time. 
 
+Thanks to [Enoflag](http://enoflagg.de/) for hosting this event!
