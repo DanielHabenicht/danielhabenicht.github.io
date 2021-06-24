@@ -12,3 +12,5 @@ Create new user with email.
   oidc_client_secret: 7d84adaf-dbed-491c-8ea9-9424cc5a234c
 
 https://github.com/thomseddon/traefik-forward-auth/issues/160
+
+https://oauth2-proxy.github.io/oauth2-proxy/docs/configuration/overview/#configuring-for-use-with-the-traefik-v2-forwardauth-middleware
