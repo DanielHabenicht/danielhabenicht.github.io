@@ -20,3 +20,6 @@ https://oauth2-proxy.github.io/oauth2-proxy/docs/configuration/overview/#configu
 
 - dont forget to set created user to be email verified
 - 
+
+
+For Azure : https://www.paraesthesia.com/archive/2020/09/03/setting-up-oauth2-proxy-with-istio/
