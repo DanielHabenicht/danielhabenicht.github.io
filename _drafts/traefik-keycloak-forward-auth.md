@@ -14,3 +14,7 @@ Create new user with email.
 https://github.com/thomseddon/traefik-forward-auth/issues/160
 
 https://oauth2-proxy.github.io/oauth2-proxy/docs/configuration/overview/#configuring-for-use-with-the-traefik-v2-forwardauth-middleware
+
+
+- dont forget to set created user to be email verified
+- 
