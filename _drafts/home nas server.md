@@ -9,6 +9,15 @@ Base Hardware:
 - 
 - 
 
+TrueNAS: 
+It's all about the right tool for the job (Remember TrueNAS it built for enterprises!)
+- No supported Encryption of the boot medium (which contains quite a few secrets)
+- Docker Containers and Running configurations are only supported on unencrypted ZFS Volumes
+
+This led me to Proxmox which has a "fairly easy" way of encrypting VMs, allowing me to run all my machines encrypted (at rest). 
+
+I still choose TrueNAS for data storage (but not for hosting any services).
+
 
 # Beginners Guide to Proxmox
 
