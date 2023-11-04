@@ -42,6 +42,42 @@ dmesg | grep -e DMAR -e IOMMU -e AMD-Vi
 ```
 3. Install TrueNAS with PCI PassThrough for the SATA Port and SATA Controller
 
+Power Optimization
+```
+# Enable SATA Power management
+line="@reboot echo 'med_power_with_dipm' > '/sys/class/scsi_host/host0/link_power_management_policy'"
+(crontab -u $(whoami) -l; echo "$line" ) | crontab -u $(whoami) -
+line="@reboot echo 'med_power_with_dipm' > '/sys/class/scsi_host/host1/link_power_management_policy'"
+(crontab -u $(whoami) -l; echo "$line" ) | crontab -u $(whoami) -
+line="@reboot echo 'med_power_with_dipm' > '/sys/class/scsi_host/host2/link_power_management_policy'"
+(crontab -u $(whoami) -l; echo "$line" ) | crontab -u $(whoami) -
+line="@reboot echo 'med_power_with_dipm' > '/sys/class/scsi_host/host3/link_power_management_policy'"
+(crontab -u $(whoami) -l; echo "$line" ) | crontab -u $(whoami) -
+line="@reboot echo 'med_power_with_dipm' > '/sys/class/scsi_host/host4/link_power_management_policy'"
+(crontab -u $(whoami) -l; echo "$line" ) | crontab -u $(whoami) -
+line="@reboot echo 'med_power_with_dipm' > '/sys/class/scsi_host/host5/link_power_management_policy'"
+(crontab -u $(whoami) -l; echo "$line" ) | crontab -u $(whoami) -
+line="@reboot echo 'med_power_with_dipm' > '/sys/class/scsi_host/host6/link_power_management_policy'"
+(crontab -u $(whoami) -l; echo "$line" ) | crontab -u $(whoami) -
+# Use powersaving mode
+line="echo 'powersave' | tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor"
+(crontab -u $(whoami) -l; echo "$line" ) | crontab -u $(whoami) -
+```
+
+# Use community packages
+
+```
+
+sed -i 's/https:\/\/enterprise/http:\/\/download/g' /etc/apt/sources.list.d/pve-enterprise.list
+sed -i 's/enterprise/no-subscription/g' /etc/apt/sources.list.d/pve-enterprise.list
+
+sed -i 's/https:\/\/enterprise/http:\/\/download/g' /etc/apt/sources.list.d/ceph.list
+sed -i 's/enterprise/no-subscription/g' /etc/apt/sources.list.d/ceph.list
+apt-get update
+apt-get dist-upgrade
+```
+
+
 ## Guides
 
 
