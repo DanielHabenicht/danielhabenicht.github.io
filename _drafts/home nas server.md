@@ -25,7 +25,13 @@ I still choose TrueNAS for data storage (but not for hosting any services).
 - local and local-lvm are the same disk just that one is folder and the second is a volume on the disk.
 
 
+
+
 ## Installation
+
+### Encryption
+
+https://privsec.dev/posts/linux/using-native-zfs-encryption-with-proxmox/
 
 1. Select right ethernet port device
 2. Activate PCI Passthrough
@@ -60,7 +66,7 @@ line="@reboot echo 'med_power_with_dipm' > '/sys/class/scsi_host/host5/link_powe
 line="@reboot echo 'med_power_with_dipm' > '/sys/class/scsi_host/host6/link_power_management_policy'"
 (crontab -u $(whoami) -l; echo "$line" ) | crontab -u $(whoami) -
 # Use powersaving mode
-line="echo 'powersave' | tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor"
+line="@reboot echo 'powersave' | tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor"
 (crontab -u $(whoami) -l; echo "$line" ) | crontab -u $(whoami) -
 ```
 
