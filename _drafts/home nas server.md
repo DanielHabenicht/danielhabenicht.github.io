@@ -86,9 +86,12 @@ apt-get dist-upgrade
 
 ## Guides
 
-
+Everything: https://tteck.github.io/Proxmox/
 
 
 TrueNAS: 
 
 https://recoverit.wondershare.com/nas-recovery/truenas-proxmox.html
+
+
+
