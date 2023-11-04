@@ -38,10 +38,16 @@ https://privsec.dev/posts/linux/using-native-zfs-encryption-with-proxmox/
 ```
 # From https://pve.proxmox.com/pve-docs/pve-admin-guide.html#sysboot_edit_kernel_cmdline
 # and https://pve.proxmox.com/pve-docs/pve-admin-guide.html#qm_pci_passthrough
+# For GRUB (not used with zfs)
 nano /etc/default/grub
 # Add or update line:
 # GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on"
 update-grub
+# For systemd-boot
+nano /etc/kernel/cmdline
+# Add or update line:
+# root=ZFS=rpool/ROOT/pve-1 boot=zfs intel_iommu=on
+proxmox-boot-tool refresh
 reboot
 dmesg | grep -e DMAR -e IOMMU -e AMD-Vi
 # Should output: "DMAR: IOMMU enabled"
