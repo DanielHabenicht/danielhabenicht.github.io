@@ -99,5 +99,7 @@ TrueNAS:
 
 https://recoverit.wondershare.com/nas-recovery/truenas-proxmox.html
 
-
+## Other
+https://github.com/danitso/terraform-provider-proxmox
+https://olav.ninja/deploying-kubernetes-cluster-on-proxmox-part-1
 
