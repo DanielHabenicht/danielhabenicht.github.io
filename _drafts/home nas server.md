@@ -89,6 +89,8 @@ apt-get update
 apt-get dist-upgrade
 ```
 
+Activate 'Datacenter>Storage>Local' add snippets
+
 
 ## Guides
 
