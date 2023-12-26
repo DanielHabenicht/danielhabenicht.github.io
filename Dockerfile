@@ -1,5 +1,5 @@
 
-FROM ruby:2.6
+FROM ruby:3.3
 
 LABEL Name=danielhabenicht.github.io Version=0.0.1
 EXPOSE 4000
