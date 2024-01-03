@@ -1,0 +1,28 @@
+site_name: DanielHabenicht
+
+theme:
+  name: material
+  palette:
+    primary: white
+  icon:
+    tag:
+      html: fontawesome/brands/html5
+      js: fontawesome/brands/js
+      css:  fontawesome/brands/css3
+
+
+plugins:
+  - blog
+  - tags:
+      listings_toc: true
+      listings_map:
+        custom-id:
+          scope: true
+          exclude: [Internal]
+
+
+extra:
+  tags:
+    HTML5: html
+    JavaScript: js
+    CSS: css

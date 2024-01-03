@@ -1,0 +1,6 @@
+authors:
+  DanielHabenicht:
+    name: Daniel Habenicht        # Author name
+    description: This is my about page. Some more info will be coming soon. # Author description
+    avatar: url         # Author avatar
+    url: url            # Author website URL

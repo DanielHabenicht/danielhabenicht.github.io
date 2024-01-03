@@ -1,9 +1,10 @@
 ---
 layout: post
 title: "How to configure Docker to use certain network ranges"
-date: 2018-10-31 17:38:39 +0000
+date: 2018-10-31T17:38:39
 categories: [Docker]
 tags: [docker]
+slug: configure-docker-for-certain-network-ranges
 ---
 
 In order to configure Docker to use a certain network range just paste this into your `/etc/docker/daemon.json`.

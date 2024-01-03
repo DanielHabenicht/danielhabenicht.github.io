@@ -1,9 +1,10 @@
 ---
-layout: post
 title: "Report of the BambiCTF of ENOFLAG"
-date: 2021-04-17 20:42:39 +0000
-categories: [blog]
+date: 2021-04-17T20:42:39
 tags: [ctf]
+slug: first-ctf-at-tu-berlin-bambi
+authors:
+  - DanielHabenicht
 ---
 
 This was my first CTF and I will try to explain a vulnerability I fixed and exploited. 
@@ -195,4 +196,4 @@ print(messages.content)
 
 > During the CTF new users where created from other people exploiting the service, which meant that in order to login with all matching regex a new user had to be created each time. 
 
-Thanks to [Enoflag](http://enoflagg.de/) for hosting this event!
+Thanks to [Enoflag](http://enoflag.de/) for hosting this event!

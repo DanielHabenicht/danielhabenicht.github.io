@@ -1,9 +1,10 @@
 ---
 layout: post
 title: "Set runtime variables for an Angular app in a Docker Container"
-date: 2019-02-06 22:38:39 +0000
+date: 2019-02-06T22:38:39
 categories: [Docker, Angular]
 tags: [docker, nginx, angular]
+slug: angular-nginx-runtime-variables
 ---
 
 A guide for setting up runtime variables for an Angular App which is hosted in a Nginx Docker container (or any else).

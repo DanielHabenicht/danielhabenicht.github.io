@@ -1,9 +1,12 @@
 ---
 layout: post
 title: "Display your Solar installation number on MagicMirror"
-date: 2021-01-03 17:53:17 +0000
-categories: [raspberry]
+date: 2021-01-03T17:53:17
+categories: [RaspberryPi]
 tags: [magicmirror]
+slug: magic-mirror-solar-kiwigrid
+authors:
+  - DanielHabenicht
 ---
 
 Display your local solar system numbers (SolarWatt/KiwiGrid), like power drawn from the mains or your solar array, on your magicmirror. 

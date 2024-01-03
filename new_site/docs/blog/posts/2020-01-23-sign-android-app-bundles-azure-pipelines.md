@@ -1,9 +1,10 @@
 ---
 layout: post
 title: "How to sign Android App Bundles in Azure Pipelines"
-date: 2020-01-23 20:53:17 +0000
+date: 2020-01-23T20:53:17
 categories: [Android]
-tags: [android]
+tags: [android, azure-pipelines]
+slug: sign-android-app-bundles-azure-pipelines
 ---
 
 The Standard Azure Pipelines [Android signing task][1] signs only `*.apk` files. But that`s not what google wants you to upload. 
