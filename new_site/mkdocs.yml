@@ -1,24 +1,95 @@
 site_name: DanielHabenicht
-
+# site_url: https://danielhabenicht.github.io
+site_url: http://localhost:8000
+use_directory_urls: false
 theme:
   name: material
+  custom_dir: overrides
+  favicon: assets/favicon.ico
+  logo: assets/logo.png
   palette:
-    primary: white
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: my-default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/lightbulb
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: my-slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/lightbulb-outline
+        name: Switch to light mode
   icon:
     tag:
       html: fontawesome/brands/html5
       js: fontawesome/brands/js
       css:  fontawesome/brands/css3
+  features:
+    - navigation.indexes
+    - search.suggest
+    - search.highlight
+    - navigation.tracking
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.instant.prefetch
+    - navigation.footer
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - toc.follow
+    - navigation.top
+    - content.code.copy
+    - content.code.select
+    - content.code.annotate
 
+extra_css:
+  - stylesheets/extra.css
+
+nav:
+  - Home: index.md
+  - Blog:
+    - blog/index.md
+  - Wiki:
+    - HomeLab:
+      - Server: homelab/home_nas_server.md
+      - SmartHome: homelab/smarthome
+    
+    - Automations: automations
+    - Random Stuff: random
+    - Reverse-Engineering: reverse-engineering
+    - Gotchas: gotchas
+  - Lists: lists
+  - Tags: tags.md
+  - About: "https://aquiver.de"
 
 plugins:
-  - blog
-  - tags:
-      listings_toc: true
-      listings_map:
-        custom-id:
-          scope: true
-          exclude: [Internal]
+  - offline
+  - search
+  - privacy:
+      assets_exclude: 
+        # - cdn.jsdelivr.net/npm/mathjax@3/* 
+        - giscus.app/*
+        - gist-it.appspot.com/*
+      links_attr_map:
+       target: _blank
+  - meta
+  - social:
+  - optimize
+  - blog:
+      post_excerpt: required
+  - tags
+  - include_dir_to_nav
 
 
 extra:
@@ -26,3 +97,25 @@ extra:
     HTML5: html
     JavaScript: js
     CSS: css
+  social:
+    - icon: fontawesome/brands/stack-overflow
+      link: https://stackoverflow.com/users/9277073
+    - icon: fontawesome/brands/github
+      link: https://github.com/DanielHabenicht/
+    - icon: material/email
+      link: "mailto:daniel-habenicht@aquiver.de"
+
+copyright: Copyright &copy; Daniel Habenicht
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets:
+      url_download: true
+  - pymdownx.superfences
+  - admonition
+  - pymdownx.details
+  - footnotes

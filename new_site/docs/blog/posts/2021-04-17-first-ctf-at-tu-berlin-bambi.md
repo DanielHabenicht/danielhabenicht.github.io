@@ -1,21 +1,24 @@
 ---
 title: "Report of the BambiCTF of ENOFLAG"
 date: 2021-04-17T20:42:39
-tags: [ctf]
+tags: [ctf, hacking, tu-berlin]
+categories: [Hacking]
 slug: first-ctf-at-tu-berlin-bambi
 authors:
   - DanielHabenicht
+comments: true
 ---
 
 This was my first CTF and I will try to explain a vulnerability I fixed and exploited. 
 
-<!--more-->
+<!-- more -->
 
 ## Setup 
 
 During the CTF I [connected to the server with VSCode](https://code.visualstudio.com/docs/remote/ssh), which meant I had instant access to all files and could edit them without changing between multiple ssh windows with `nano` editors.
 
 Also the extensions: 
+
  - [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker):
    For always having an eye on your services, easy access to logs and one-click terminals to your containers. 
  - [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client):
@@ -23,7 +26,7 @@ Also the extensions:
  - [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
    For writing the exploit in a simple jupyter notebook. 
 
-allowed for a hassle free search for vulnerabilities
+allowed for a hassle free search for vulnerabilities.
 
 ## Stonksexchange Vulnerability
 
@@ -31,7 +34,7 @@ allowed for a hassle free search for vulnerabilities
 
 The service is a simple node application which allows exchange of messages for registered/loggedin users: 
 
-![image](https://user-images.githubusercontent.com/13590797/115123614-2d724c00-9fbe-11eb-8a9b-abe2db800a7d.png)
+![image](2021-04-17-picture1.png)
 
 First I tried a simple XSS attack but was unsuccessful. Then it came to my mind that it might be some kind of injection attack as the service had a database.
 After having a look at the files I noticed that user input was passed to the database without sanitizing it: 
@@ -110,7 +113,7 @@ Now that we know that the endpoints `/register`, `/login` and `/messages` are vu
 
 Looking into the database we can see messages with flags. But how to retrieve them?
 
-![image](https://user-images.githubusercontent.com/13590797/115124821-952b9580-9fc4-11eb-8d4c-b5b1a75ed2ca.png)
+![image](2021-04-17-picture2.png)
 
 Having a look at the `/messages` endpoint we can see that `req.session.user` is used without sanitizing it, which means if we can put an Operator like `{"$regex": "."}` there (which matches any character and thus any user), we can retrieve the first 50 messages of the database. 
 ```javascript
@@ -166,7 +169,7 @@ router.post('/login', function (req, res) {
 
 Viewing the `/login` enpoint we can see that the first user matching the query will be returned. As we want the username to be `{"$regex": "."}` we have to consider the ([natural](https://docs.mongodb.com/v4.2/reference/glossary/#term-natural-order)) sort order. 
 
-![image](https://user-images.githubusercontent.com/13590797/115125463-7d561080-9fc8-11eb-84fe-eb8049f2791f.png)
+![image](2021-04-17-picture3.png)
 
 In this case `findOne` will always return the last created user. For a successful login we have to know the password of the user. What better way to just create one?
 

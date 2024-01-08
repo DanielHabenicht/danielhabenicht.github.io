@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Display your Solar installation number on MagicMirror"
 date: 2021-01-03T17:53:17
 categories: [RaspberryPi]
@@ -11,7 +10,7 @@ authors:
 
 Display your local solar system numbers (SolarWatt/KiwiGrid), like power drawn from the mains or your solar array, on your magicmirror. 
 
-<!--more-->
+<!-- more -->
 
 > This guide assumes that you already installed your MagicMirror, if not set it up with this [guide](https://docs.magicmirror.builders/getting-started/installation.html).
 
@@ -68,4 +67,4 @@ You can find some documentation of the response [here](https://www.loxwiki.eu/di
 ```
 
 More interesing Links: 
-https://forum.iobroker.net/topic/14065/adapter-energymanager-eon-aura-bzw-solarwatt/46
+[https://forum.iobroker.net/topic/14065/adapter-energymanager-eon-aura-bzw-solarwatt/46](https://forum.iobroker.net/topic/14065/adapter-energymanager-eon-aura-bzw-solarwatt/46)
