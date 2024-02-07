@@ -34,3 +34,56 @@ article h3 {
 }
 
 ```
+
+
+Build the documentation by running the following commands:
+
+```bash
+# Development (serving the documentation)
+docker-compose up
+
+# Build the docs to ./site
+docker-compose run --rm mkdocs build
+```
+
+Referenz für Formatierung: https://squidfunk.github.io/mkdocs-material/reference/
+
+
+
+```
+site_name: My Docs
+theme:
+  name: material
+  logo: assets/logo.png
+site_author: Me
+extra_css:
+  - custom.css
+plugins:
+  # Using https://github.com/orzih/mkdocs-with-pdf
+    - with-pdf:
+        author: ''
+        cover_title: Tool
+        cover_subtitle: Dokumentation für 
+        cover_logo: docs/assets/logo_claim.png
+        # debug_html: true
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - attr_list
+  - md_in_html
+
+copyright: '© 2024 DanielHabenicht'
+```
+
+
+```
+version: "3.9" 
+services:
+  mkdocs:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/docs
+```
