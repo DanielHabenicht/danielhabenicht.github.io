@@ -157,7 +157,6 @@ curl -fsSL https://get.docker.com -o get-docker.sh
 sh get-docker.sh
 ```
 
-
 ## VMs
 
 > This would be the terraform part, but because of many bugs with the proxmox provider I will do it manually for now.
@@ -165,10 +164,10 @@ sh get-docker.sh
 ## Docker VM
 
 - [dns](https://github.com/TechnitiumSoftware/DnsServer) via `bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/technitiumdns.sh)"`
-- paperless 
+- paperless
 - traefik
 - monica
-grafana + prometheus
+  grafana + prometheus
 - truenas through traefik
 
 # Traefik
@@ -178,7 +177,6 @@ touch acme.json
 root@ubuntu-docker-host:/home/ubuntu/traefik# chmod 600 acme.json
 root@ubuntu-docker-host:/home/ubuntu/traefik# docker compose up
 ```
-
 
 ### Paperless NGX
 
@@ -203,7 +201,7 @@ sudo apt install cifs-utils psmisc
 ## Export
 cd /home/ubuntu/paperless-ngx
 docker compose exec -T webserver document_exporter ../export --no-thumbnail --use-folder-prefix --zip
-## Import 
+## Import
 document_importer source
 
 ## Trilium automatically creates backups in the data/backups directory
@@ -229,11 +227,10 @@ cp /home/ubuntu/trilium/trilium-data/backup/*.db /mnt/truenas_backup/trilium/
 umount -t cifs /mnt/truenas_backup
 ```
 
-
 # Updates
 
 ## Proxmox
-    
+
 ```bash
 apt update
 apt full-upgrade
@@ -242,7 +239,6 @@ apt full-upgrade
 zpool status
 zpool upgrade
 ```
-
 
 ## Guides
 
@@ -256,6 +252,5 @@ https://recoverit.wondershare.com/nas-recovery/truenas-proxmox.html
 
 https://github.com/danitso/terraform-provider-proxmox
 https://olav.ninja/deploying-kubernetes-cluster-on-proxmox-part-1
-
 
 https://github.com/DanielHabenicht/homelab.config

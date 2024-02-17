@@ -6,13 +6,12 @@ categories: [Automation]
 tags: [windows, hassio]
 ---
 
-Beginning with [Manim](https://github.com/ManimCommunity/manim/) and don't know what the angles are supposed to mean? 
+Beginning with [Manim](https://github.com/ManimCommunity/manim/) and don't know what the angles are supposed to mean?
 
-Skip below for a copy paste example with some useful default values. 
-
+Skip below for a copy paste example with some useful default values.
 
 ```python
-# These are the defalt values, applying them should do nothing. 
+# These are the defalt values, applying them should do nothing.
 self.move_camera(phi=0 * DEGREES, theta=-90 * DEGREES, gamma=0 * DEGREES)
 self.wait()
 
@@ -40,8 +39,8 @@ self.move_camera(gamma=0 * DEGREES)
 self.wait()
 
 # Get a 3D View on Coordinate system
-self.move_camera(phi=-45 * DEGREES, theta=-135 * DEGREES, gamma=-45 * DEGREES) 
+self.move_camera(phi=-45 * DEGREES, theta=-135 * DEGREES, gamma=-45 * DEGREES)
 
 # Get a 3D View on Coordinate system
-self.move_camera(phi=-45 * DEGREES, theta=-45 * DEGREES, gamma=45 * DEGREES) 
+self.move_camera(phi=-45 * DEGREES, theta=-45 * DEGREES, gamma=45 * DEGREES)
 ```

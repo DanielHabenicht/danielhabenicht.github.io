@@ -7,13 +7,12 @@ tags: [reverse-engineering, livy, linux, incomplete]
 
 > [https://github.com/DanielHabenicht/reverseengineering.livy](https://github.com/DanielHabenicht/reverseengineering.livy)
 
-PIN Layout: 
+PIN Layout:
 https://tasmota.github.io/docs/_media/pinouts/ESP-WROOM-32_pinout.jpg
 
-Important for Connections: 
+Important for Connections:
 
 - connect ground of flashing device with ground of livy
-
 
 ```bash
 PS C:\Develop> espefuse.py.exe --port COM6 summary
@@ -103,8 +102,7 @@ BLOCK3 (BLOCK3):                                   Variable Block 3
 Flash voltage (VDD_SDIO) determined by GPIO12 on reset (High for 1.8V, Low/NC for 3.3V).
 ```
 
-
-Get Firmware: 
+Get Firmware:
 
 ```bash
 PS C:\Develop> esptool.py.exe --chip esp32 --p COM6 --baud 115200 read_flash 0x0 0x400000 Backupb.bin

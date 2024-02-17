@@ -5,15 +5,19 @@ Im Folgenden wird Beispielhaft gezeigt wie man diese Einstellungen setzen kann.
 Es gilt zu beachten, dass verschiedene Programme unterschiedliche Einstellungen benötigen können
 
 ## Manuell
+
 Für die meisten Programme reicht es entsprechende Umgebungsvariablen zu setzen.
 
 ### Setzen
+
 ```
 export {http,https,ftp}_proxy="http://proxy.domain.de:8080"
 export {HTTP,HTTPS,FTP}_PROXY="http://proxy.domain.de:8080"
 export {no_proxy,NO_PROXY}="localhost,127.0.0.1,.domain.de,.company.de"
 ```
+
 ### Löschen
+
 ```
 unset {http,https,ftp}_proxy
 unset {HTTP,HTTPS,FTP}_PROXY
@@ -21,9 +25,11 @@ unset {no_proxy,NO_PROXY}
 ```
 
 ## Automatisch
+
 Möchte man diese Einstellungen persistent haben kann man die Befehle auch in die .bashrc eintragen. Die Einträge sollten ganz am Ende eingefügt werden.
 
 `sudo vi ~/.bashrc`
+
 > Tipp: Aus VI kommt man wieder raus in dem man folgendes drückt: ESC > : > wq > Enter
 
 Nachdem diese Datei angepasst wurde muss man das System veranlassen diese neu zu verarbeiten:
@@ -31,6 +37,7 @@ Nachdem diese Datei angepasst wurde muss man das System veranlassen diese neu zu
 `source ~/.bashrc`
 
 ### Nach Bedarf
+
 Möchte man den Proxy nach Bedarf ein und aus schalten kann man sich diesen Code Block in die .bashrc einfügen (mit nano ~/.bashrc):
 
 ```
@@ -52,6 +59,7 @@ function proxyoff() {
 ```
 
 ### sudo mit Proxy
+
 Mit sudo visudo öffnet man den Editor für die sudo Einstellungen. Darin wird folgendes eingetragen:
 
 ```
