@@ -1,4 +1,4 @@
-Möchte man die Bash mit Ubuntu unter Windows 10 innerhalb der MMS nutzen wird man Probleme haben Zugriffe in das Internet ausführen zu können. Die Ursache dafür ist dann unter Umständen, dass das Ubuntu Subsystem keine Kenntnisse von unserem Proxy hat.
+Möchte man die Bash mit Ubuntu unter Windows 10 innerhalb einer Firma mit Proxy nutzen wird man Probleme haben Zugriffe in das Internet ausführen zu können. Die Ursache dafür ist dann unter Umständen, dass das Ubuntu Subsystem keine Kenntnisse von unserem Proxy hat.
 
 Im Folgenden wird Beispielhaft gezeigt wie man diese Einstellungen setzen kann.
 
@@ -11,7 +11,7 @@ Für die meisten Programme reicht es entsprechende Umgebungsvariablen zu setzen.
 ```
 export {http,https,ftp}_proxy="http://proxy.domain.de:8080"
 export {HTTP,HTTPS,FTP}_PROXY="http://proxy.domain.de:8080"
-export {no_proxy,NO_PROXY}="localhost,127.0.0.1,.domain.de,.mms-at-work.de"
+export {no_proxy,NO_PROXY}="localhost,127.0.0.1,.domain.de,.company.de"
 ```
 ### Löschen
 ```
@@ -38,7 +38,7 @@ Möchte man den Proxy nach Bedarf ein und aus schalten kann man sich diesen Code
 function proxyon() {
     export {http,https,ftp}_proxy="http://proxy.domain.de:8080"
     export {HTTP,HTTPS,FTP}_PROXY="http://proxy.domain.de:8080"
-    export {no_proxy,NO_PROXY}="localhost,127.0.0.1,.domain.de,.mms-at-work.de"
+    export {no_proxy,NO_PROXY}="localhost,127.0.0.1,.domain.de,.company.de"
     echo Proxy is on
 }
 
