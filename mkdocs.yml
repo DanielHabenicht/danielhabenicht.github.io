@@ -69,6 +69,7 @@ nav:
     - Random Stuff: random
     - Reverse-Engineering: reverse-engineering
     - Gotchas: gotchas
+    - Development: development
   - Lists: lists
   - Tags: tags.md
   - About: "https://aquiver.de"
