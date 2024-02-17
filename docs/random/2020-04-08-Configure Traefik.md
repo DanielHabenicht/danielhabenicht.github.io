@@ -3,6 +3,7 @@ title: "Configure Kubernetes Ingress with Traefik"
 date: 2020-04-08 15:41:39 +0000
 categories: [Random]
 tags: [kubernetes, traefik]
+draft: true
 ---
 
 https://docs.traefik.io/providers/kubernetes-ingress/
