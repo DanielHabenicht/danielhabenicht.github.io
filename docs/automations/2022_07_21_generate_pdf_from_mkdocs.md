@@ -1,8 +1,7 @@
 https://pypi.org/project/mkdocs-with-pdf/
 
-Better than: 
+Better than:
 https://github.com/comwes/mkpdfs-mkdocs-plugin
-
 
 ```Dockerfile
 FROM squidfunk/mkdocs-material
@@ -16,6 +15,7 @@ RUN pip install weasyprint==$weasyprint_version mkdocs-with-pdf
 ```
 
 Add custom CSS (https://github.com/orzih/mkdocs-with-pdf/issues/119)
+
 ```
 :root > * {
 	--md-primary-fg-color: #e20074;
@@ -35,7 +35,6 @@ article h3 {
 
 ```
 
-
 Build the documentation by running the following commands:
 
 ```bash
@@ -47,8 +46,6 @@ docker-compose run --rm mkdocs build
 ```
 
 Referenz für Formatierung: https://squidfunk.github.io/mkdocs-material/reference/
-
-
 
 ```
 site_name: My Docs
@@ -63,7 +60,7 @@ plugins:
     - with-pdf:
         author: ''
         cover_title: Tool
-        cover_subtitle: Dokumentation für 
+        cover_subtitle: Dokumentation für
         cover_logo: docs/assets/logo_claim.png
         # debug_html: true
 markdown_extensions:
@@ -76,9 +73,8 @@ markdown_extensions:
 copyright: '© 2024 DanielHabenicht'
 ```
 
-
 ```
-version: "3.9" 
+version: "3.9"
 services:
   mkdocs:
     build: .

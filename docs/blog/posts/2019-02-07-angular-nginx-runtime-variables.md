@@ -32,8 +32,7 @@ Those two scripts do just that. There are two variations as it depends on your n
 
 This script utilizes the `envsubst` command to replace the variables given. _Throws no error_ if the variable is undefined.
 
-
-``` sh title="<a href='https://github.com/DanielHabenicht/docker-angular-runtime-variables/blob/master/substitute_env_variables.sh'>substitute_env_variables.sh</a>"
+```sh title="<a href='https://github.com/DanielHabenicht/docker-angular-runtime-variables/blob/master/substitute_env_variables.sh'>substitute_env_variables.sh</a>"
 --8<-- "https://raw.githubusercontent.com/DanielHabenicht/docker-angular-runtime-variables/master/substitute_env_variables.sh"
 ```
 
@@ -41,10 +40,9 @@ This script utilizes the `envsubst` command to replace the variables given. _Thr
 
 Uses some custom `grep`/`sed` logic to replace the variables given. _Throws an error_ if a variable is undefined.
 
-``` sh title="<a href='https://github.com/DanielHabenicht/docker-angular-runtime-variables/blob/master/substitute_env_variables_multi.sh'>substitute_env_variables_multi.sh</a>"
+```sh title="<a href='https://github.com/DanielHabenicht/docker-angular-runtime-variables/blob/master/substitute_env_variables_multi.sh'>substitute_env_variables_multi.sh</a>"
 --8<-- "https://raw.githubusercontent.com/DanielHabenicht/docker-angular-runtime-variables/master/substitute_env_variables_multi.sh"
 ```
-
 
 ### 2. Prepare your angular app
 
@@ -54,17 +52,18 @@ This is kind of hacky but also the most straight forward way:
 
    <script src="https://gist-it.appspot.com/https://github.com/DanielHabenicht/docker-angular-runtime-variables/blob/master/src/index.html"></script>
 
-   ``` html title="<a href='https://github.com/DanielHabenicht/docker-angular-runtime-variables/blob/master/src/index.html'>index.html</a>"
-   --8<-- "https://raw.githubusercontent.com/DanielHabenicht/docker-angular-runtime-variables/master/src/index.html"
+   ```html title="<a href='https://github.com/DanielHabenicht/docker-angular-runtime-variables/blob/master/src/index.html'>index.html</a>"
+   --8<--
+   "https://raw.githubusercontent.com/DanielHabenicht/docker-angular-runtime-variables/master/src/index.html"
    ```
 
 2. Create a `runtimeEnvironment.ts` file in your `src/environments` folder and paste the content.
 
-   ``` typescript title="<a href='https://github.com/DanielHabenicht/docker-angular-runtime-variables/blob/master/src/environments/runtimeEnvironment.ts'>runtimeEnvironment.ts</a>"
+   ```typescript title="<a href='https://github.com/DanielHabenicht/docker-angular-runtime-variables/blob/master/src/environments/runtimeEnvironment.ts'>runtimeEnvironment.ts</a>"
    --8<-- "https://raw.githubusercontent.com/DanielHabenicht/docker-angular-runtime-variables/master/src/environments/runtimeEnvironment.ts"
    ```
 
-!!! info 
+!!! info
 
     We do not use the `environment.ts` file as this does induce some errors with advanced angular apps (especially if use in `.forRoot()` functions), for example:
 
@@ -77,14 +76,12 @@ This is kind of hacky but also the most straight forward way:
 
 While building your docker image you have to copy the script you choose earlier and set the executable rights. Then define it as your entry point and do not forget to specify the path of the file you want to update with the environment variables.
 
-
-!!! warning 
+!!! warning
 
     The Bash script should have `LF` line endings, otherwise Docker will fail with `exec user process caused "no such file or directory"`
     If you you are not sure if you have LF ending in your git repository, check out this guide: [https://stackoverflow.com/a/33424884/9277073](https://stackoverflow.com/a/33424884/9277073)
 
-
-``` dockerfile title="<a href='https://github.com/DanielHabenicht/docker-angular-runtime-variables/blob/master/Dockerfile'>Dockerfile</a>"
+```dockerfile title="<a href='https://github.com/DanielHabenicht/docker-angular-runtime-variables/blob/master/Dockerfile'>Dockerfile</a>"
 --8<-- "https://raw.githubusercontent.com/DanielHabenicht/docker-angular-runtime-variables/master/Dockerfile"
 ```
 
@@ -92,14 +89,13 @@ While building your docker image you have to copy the script you choose earlier 
 
 Include the `runtimeEnvironment` in your angular components, services, pipes etc.. For example:
 
-
-``` typescript title="<a href='https://github.com/DanielHabenicht/docker-angular-runtime-variables/blob/master/src/app/app.component.ts'>src/app/app.component.ts</a>"
+```typescript title="<a href='https://github.com/DanielHabenicht/docker-angular-runtime-variables/blob/master/src/app/app.component.ts'>src/app/app.component.ts</a>"
 --8<-- "https://raw.githubusercontent.com/DanielHabenicht/docker-angular-runtime-variables/master/src/app/app.component.ts"
 ```
 
-
-``` html title="<a href='https://github.com/DanielHabenicht/docker-angular-runtime-variables/blob/master/src/app/app.component.html'>src/app/app.component.html</a>"
---8<-- "https://raw.githubusercontent.com/DanielHabenicht/docker-angular-runtime-variables/master/src/app/app.component.html"
+```html title="<a href='https://github.com/DanielHabenicht/docker-angular-runtime-variables/blob/master/src/app/app.component.html'>src/app/app.component.html</a>"
+--8<--
+"https://raw.githubusercontent.com/DanielHabenicht/docker-angular-runtime-variables/master/src/app/app.component.html"
 ```
 
 Thanks for reading. Hope you enjoyed it. ;)
@@ -112,15 +108,13 @@ If you are using the environment variables during your tests you have to mock th
 
 1. Create a globals.js with your `ENV` variable.
 
-
-   ``` js title="<a href='https://github.com/DanielHabenicht/docker-angular-runtime-variables/blob/master/src/globals.js'>src/globals.js</a>"
+   ```js title="<a href='https://github.com/DanielHabenicht/docker-angular-runtime-variables/blob/master/src/globals.js'>src/globals.js</a>"
    --8<-- "https://raw.githubusercontent.com/DanielHabenicht/docker-angular-runtime-variables/master/src/globals.js"
    ```
 
 2. Link the `globals.js` in your karma.config.js, by specifying `files: ["globals.js]`
 
-
-   ``` js title="<a href='https://github.com/DanielHabenicht/docker-angular-runtime-variables/blob/master/src/karma.conf.js'>src/karma.conf.js</a>"
+   ```js title="<a href='https://github.com/DanielHabenicht/docker-angular-runtime-variables/blob/master/src/karma.conf.js'>src/karma.conf.js</a>"
    --8<-- "https://raw.githubusercontent.com/DanielHabenicht/docker-angular-runtime-variables/master/src/karma.conf.js"
    ```
 

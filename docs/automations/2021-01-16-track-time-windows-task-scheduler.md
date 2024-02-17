@@ -6,7 +6,8 @@ categories: [Automation]
 tags: [windows, hassio]
 ---
 
-You need 4 Task Scheduler Events: 
+You need 4 Task Scheduler Events:
+
 - On Workstation lock of any user
 - On workstation unlock of <User>
 - On event - Log: System, Source: Winlogon, Event ID: 7002
@@ -34,8 +35,6 @@ if "%1"=="unlocked" curl curl -i -X POST -H "Content-Type:application/json" -H "
 
 ```
 
-
 If you want to monitor even more values have a look at: https://iotlink.gitlab.io/
-
 
 This is a modified version from https://sumtips.com/how-to/windows-track-user-lock-unlock-login-logout-time/
