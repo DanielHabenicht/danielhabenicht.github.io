@@ -1,11 +1,9 @@
 version: "2.1"
 
 services:
-  ruby:
-    build:
-      context: .
-      dockerfile: Dockerfile
+  mkdocs:
+    image: ghcr.io/danielhabenicht/fork.mkdocs-material-insiders:9.5.3-insiders-4.49.0-08012024.2
     volumes:
-      - ./:/app
+      - ./:/docs
     ports:
-      - 4000:4000
+      - 8000:8000
