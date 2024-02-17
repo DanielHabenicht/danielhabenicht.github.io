@@ -33,7 +33,7 @@ theme:
     tag:
       html: fontawesome/brands/html5
       js: fontawesome/brands/js
-      css:  fontawesome/brands/css3
+      css: fontawesome/brands/css3
   features:
     - navigation.indexes
     - search.suggest
@@ -59,16 +59,16 @@ extra_css:
 nav:
   - Home: index.md
   - Blog:
-    - blog/index.md
+      - blog/index.md
   - Wiki:
-    - HomeLab:
-      - Server: homelab/home_nas_server.md
-      - SmartHome: homelab/smarthome
-    
-    - Automations: automations
-    - Random Stuff: random
-    - Reverse-Engineering: reverse-engineering
-    - Gotchas: gotchas
+      - HomeLab:
+          - Server: homelab/home_nas_server.md
+          - SmartHome: homelab/smarthome
+
+      - Automations: automations
+      - Random Stuff: random
+      - Reverse-Engineering: reverse-engineering
+      - Gotchas: gotchas
   - Lists: lists
   - Tags: tags.md
   - About: "https://aquiver.de"
@@ -77,12 +77,12 @@ plugins:
   - offline
   - search
   - privacy:
-      assets_exclude: 
-        # - cdn.jsdelivr.net/npm/mathjax@3/* 
+      assets_exclude:
+        # - cdn.jsdelivr.net/npm/mathjax@3/*
         - giscus.app/*
         - gist-it.appspot.com/*
       links_attr_map:
-       target: _blank
+        target: _blank
   - meta
   - social:
   - optimize
@@ -90,7 +90,6 @@ plugins:
       post_excerpt: required
   - tags
   - include_dir_to_nav
-
 
 extra:
   tags:
