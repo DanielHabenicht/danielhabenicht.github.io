@@ -1,3 +1,10 @@
+---
+title: "Generate PDF Documentation from mkdocs"
+date: 2021-07-21 17:45:39 +0000
+categories: [Automation]
+tags: [docker, mkdocs, pdf]
+---
+
 https://pypi.org/project/mkdocs-with-pdf/
 
 Better than: 

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "How to push to TFS/VSTS Repo with the Build Agent Identity"
 date: 2018-09-04 15:41:39 +0000
 categories: [Azure DevOps]
