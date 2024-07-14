@@ -5,15 +5,15 @@
 sudo apt-get update
 sudo apt-get install libasound2-dev libflac-dev libmad0-dev libvorbis-dev libfaad-dev libmpg123-dev liblircclient-dev libncurses5-dev
 
-# Download the latest squeezlite version
+sudo apt-get install
+# DO NOT Download the latest squeezlite version (as there seems to be a compatibilty issue between pulse audio and newer versions)
 # https://sourceforge.net/projects/lmsclients/files/squeezelite/
-cd /home/pi
-mkdir squeezelite
-cd squeezelite
-wget https://sourceforge.net/projects/lmsclients/files/squeezelite/linux/squeezelite-2.0.0.1486-armhf.tar.gz
-tar -xzf squeezelite-2.0.0.1486-armhf.tar.gz
-
-sudo mv squeezelite /usr/bin/squeezelite
+# cd /home/pi
+# mkdir squeezelite
+# cd squeezelite
+# wget https://sourceforge.net/projects/lmsclients/files/squeezelite/linux/squeezelite-2.0.0.1486-armhf.tar.gz
+# tar -xzf squeezelite-2.0.0.1486-armhf.tar.gz
+# sudo mv squeezelite /usr/bin/squeezelite
 ```
 
 Installed!
