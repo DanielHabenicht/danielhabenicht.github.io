@@ -53,3 +53,5 @@ RUN update-ca-certificates
 
 
 Thanks to: https://arminreiter.com/2022/01/create-your-own-certificate-authority-ca-using-openssl/
+
+https://learn.microsoft.com/en-us/dotnet/core/additional-tools/self-signed-certificates-guide#with-openssl
