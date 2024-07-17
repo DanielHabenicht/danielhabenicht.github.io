@@ -55,3 +55,33 @@ RUN update-ca-certificates
 Thanks to: https://arminreiter.com/2022/01/create-your-own-certificate-authority-ca-using-openssl/
 
 https://learn.microsoft.com/en-us/dotnet/core/additional-tools/self-signed-certificates-guide#with-openssl
+
+
+Or 
+
+```
+FROM smallstep/step-ca AS certs
+
+RUN pwd && step certificate create "Smallstep Root CA" "/tmp/cacert.pem" "/tmp/cakey.pem" \
+    --no-password --insecure \
+    --profile root-ca \
+    --not-before "2021-01-01T00:00:00+00:00" \
+    --not-after "2031-01-01T00:00:00+00:00" \
+    --san "example.com" \
+    --san "mail.example.com" \
+    --kty RSA --size 2048
+
+# RUN step certificate create "Smallstep Leaf" mail.example.test-cert.pem mail.example.test-key.pem \
+#     --no-password --insecure \
+#     --profile leaf \
+#     --ca "cacert.pem" \
+#     --ca-key "cakey.pem" \
+#     --not-before "2021-01-01T00:00:00+00:00" \
+#     --not-after "2031-01-01T00:00:00+00:00" \
+#     --san "example.test" \
+#     --san "mail.example.test" \
+#     --kty RSA --size 2048
+
+
+COPY --from=certs /tmp/* /tmp/dms/custom-certs/
+```
