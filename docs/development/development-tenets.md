@@ -16,3 +16,7 @@ This rules out a number strategies and practices:
 
 - Extra Developer Documentation Tools:
   Document in Code or add extra files in the Repository for everything a new team member might need to know.
+
+- Unclear Scopes and no Decisions
+  Even if the features you develop are murky af, as even the customer does not know what he wants yet - your team should. So do not decide for no decision.
+  Specify what your inital feature should do (for how many people, with which boundaries) and iterate on that later, there is nobody witholding you from amend a decision.
