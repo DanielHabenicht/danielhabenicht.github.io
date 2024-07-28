@@ -1,5 +1,3 @@
-
-
 > New kid on the block:
 > https://learn.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis/aspnetcore-openapi?view=aspnetcore-9.0&tabs=net-cli#lint-generated-openapi-documents-with-spectral
 
