@@ -33,7 +33,7 @@ jobs:
           mkdir -p .cache/plugin/social/fonts/$FONT_FAMILY
           cd workaround
           unzip $FONT_FAMILY.zip 
-          mv ./*.ttf ../.cache/plugin/social/fonts/$FONT_FAMILY
+          mv -f ./*.ttf ../.cache/plugin/social/fonts/$FONT_FAMILY
           cd ../.cache/plugin/social/fonts/$FONT_FAMILY
           for f in *.ttf; do mv "$f" "$(echo "$f" | sed s/Roboto-//)"; done
       - run: mkdocs gh-deploy --force
