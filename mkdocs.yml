@@ -105,6 +105,10 @@ extra:
       link: https://github.com/DanielHabenicht/
     - icon: material/email
       link: "mailto:daniel-habenicht@aquiver.de"
+  analytics:
+    provider: google
+    property: G-QERH3ZN6L2
+    
 
 copyright: Copyright &copy; Daniel Habenicht
 
