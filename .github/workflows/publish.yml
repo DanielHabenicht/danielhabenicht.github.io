@@ -33,9 +33,8 @@ jobs:
           mkdir -p .cache/plugin/social/fonts/$FONT_FAMILY
           cd workaround
           unzip $FONT_FAMILY.zip 
-          mv -f ./*.ttf ../.cache/plugin/social/fonts/$FONT_FAMILY
-          cd ../.cache/plugin/social/fonts/$FONT_FAMILY
           for f in *.ttf; do mv -f "$f" "$(echo "$f" | sed s/Roboto-//)"; done
+          mv -f ./*.ttf ../.cache/plugin/social/fonts/$FONT_FAMILY
       - run: mkdocs gh-deploy --force
 env:
   GH_TOKEN: ${{ secrets.GH_TOKEN }}
