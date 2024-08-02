@@ -8,3 +8,5 @@ https://justinbarclay.ca/posts/1password-across-the-void/
 Guides:
 ​
 https://brokul.dev/authentication-cookie-lifetime-and-sliding-expiration
+
+https://azurecharts.com/
