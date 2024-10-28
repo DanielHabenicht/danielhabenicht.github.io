@@ -105,7 +105,9 @@ extra:
       link: https://github.com/DanielHabenicht/
     - icon: material/email
       link: "mailto:daniel-habenicht@aquiver.de"
-    
+  analytics:
+    provider: custom
+    property: foobar
 
 copyright: Copyright &copy; Daniel Habenicht
 
