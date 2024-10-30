@@ -82,6 +82,7 @@ plugins:
         # - cdn.jsdelivr.net/npm/mathjax@3/* 
         - giscus.app/*
         - gist-it.appspot.com/*
+        - analytics.aquiver.de/*
       links_attr_map:
        target: _blank
   - meta
