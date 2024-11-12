@@ -38,3 +38,5 @@ If you want to monitor even more values have a look at: https://iotlink.gitlab.i
 
 
 This is a modified version from https://sumtips.com/how-to/windows-track-user-lock-unlock-login-logout-time/
+
+> Integrate with any Time Tracking software: https://github.com/DanielHabenicht/TimeTracking
