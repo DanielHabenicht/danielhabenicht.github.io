@@ -1,0 +1,1565 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 12,
+  "links": [],
+  "panels": [
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "ZIinV3hVk"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "fixed"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "fillOpacity": 80,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 29,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 1,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.97,
+        "fullHighlight": false,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [
+            "last"
+          ],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true
+        },
+        "orientation": "horizontal",
+        "showValue": "auto",
+        "stacking": "none",
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        },
+        "xField": "Time",
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
+      },
+      "pluginVersion": "11.3.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "ZIinV3hVk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "entity_id::tag"
+              ],
+              "type": "tag"
+            }
+          ],
+          "hide": false,
+          "measurement": "%",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT count(\"value\") FROM \"autogen\".\"state\" WHERE $timeFilter GROUP BY \"entity_id\"::tag\n",
+          "rawQuery": false,
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "count"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "ZIinV3hVk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "entity_id::tag"
+              ],
+              "type": "tag"
+            }
+          ],
+          "hide": false,
+          "measurement": "%/min",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT count(\"value\") FROM \"autogen\".\"state\" WHERE $timeFilter GROUP BY \"entity_id\"::tag\n",
+          "rawQuery": false,
+          "refId": "C",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "count"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "ZIinV3hVk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "entity_id::tag"
+              ],
+              "type": "tag"
+            }
+          ],
+          "hide": false,
+          "measurement": "A",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT count(\"value\") FROM \"autogen\".\"state\" WHERE $timeFilter GROUP BY \"entity_id\"::tag\n",
+          "rawQuery": false,
+          "refId": "D",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "count"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "ZIinV3hVk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "entity_id::tag"
+              ],
+              "type": "tag"
+            }
+          ],
+          "hide": false,
+          "measurement": "B",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT count(\"value\") FROM \"autogen\".\"state\" WHERE $timeFilter GROUP BY \"entity_id\"::tag\n",
+          "rawQuery": false,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "count"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "ZIinV3hVk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "entity_id::tag"
+              ],
+              "type": "tag"
+            }
+          ],
+          "hide": false,
+          "measurement": "GB",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT count(\"value\") FROM \"autogen\".\"state\" WHERE $timeFilter GROUP BY \"entity_id\"::tag\n",
+          "rawQuery": false,
+          "refId": "E",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "count"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "ZIinV3hVk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "entity_id::tag"
+              ],
+              "type": "tag"
+            }
+          ],
+          "hide": false,
+          "measurement": "KiB/s",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT count(\"value\") FROM \"autogen\".\"state\" WHERE $timeFilter GROUP BY \"entity_id\"::tag\n",
+          "rawQuery": false,
+          "refId": "F",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "count"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "ZIinV3hVk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "entity_id::tag"
+              ],
+              "type": "tag"
+            }
+          ],
+          "hide": false,
+          "measurement": "Mbit/s",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT count(\"value\") FROM \"autogen\".\"state\" WHERE $timeFilter GROUP BY \"entity_id\"::tag\n",
+          "rawQuery": false,
+          "refId": "G",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "count"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "ZIinV3hVk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "entity_id::tag"
+              ],
+              "type": "tag"
+            }
+          ],
+          "hide": false,
+          "measurement": "Refreshes",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT count(\"value\") FROM \"autogen\".\"state\" WHERE $timeFilter GROUP BY \"entity_id\"::tag\n",
+          "rawQuery": false,
+          "refId": "H",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "count"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "ZIinV3hVk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "entity_id::tag"
+              ],
+              "type": "tag"
+            }
+          ],
+          "hide": false,
+          "measurement": "UVI",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT count(\"value\") FROM \"autogen\".\"state\" WHERE $timeFilter GROUP BY \"entity_id\"::tag\n",
+          "rawQuery": false,
+          "refId": "I",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "count"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "ZIinV3hVk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "entity_id::tag"
+              ],
+              "type": "tag"
+            }
+          ],
+          "hide": false,
+          "measurement": "V",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT count(\"value\") FROM \"autogen\".\"state\" WHERE $timeFilter GROUP BY \"entity_id\"::tag\n",
+          "rawQuery": false,
+          "refId": "J",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "count"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "ZIinV3hVk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "entity_id::tag"
+              ],
+              "type": "tag"
+            }
+          ],
+          "hide": false,
+          "measurement": "VA",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT count(\"value\") FROM \"autogen\".\"state\" WHERE $timeFilter GROUP BY \"entity_id\"::tag\n",
+          "rawQuery": false,
+          "refId": "K",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "count"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "ZIinV3hVk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "entity_id::tag"
+              ],
+              "type": "tag"
+            }
+          ],
+          "hide": false,
+          "measurement": "W",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT count(\"value\") FROM \"autogen\".\"state\" WHERE $timeFilter GROUP BY \"entity_id\"::tag\n",
+          "rawQuery": false,
+          "refId": "L",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "count"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "ZIinV3hVk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "entity_id::tag"
+              ],
+              "type": "tag"
+            }
+          ],
+          "hide": false,
+          "measurement": "cm",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT count(\"value\") FROM \"autogen\".\"state\" WHERE $timeFilter GROUP BY \"entity_id\"::tag\n",
+          "rawQuery": false,
+          "refId": "M",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "count"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "ZIinV3hVk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "entity_id::tag"
+              ],
+              "type": "tag"
+            }
+          ],
+          "hide": false,
+          "measurement": "dB",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT count(\"value\") FROM \"autogen\".\"state\" WHERE $timeFilter GROUP BY \"entity_id\"::tag\n",
+          "rawQuery": false,
+          "refId": "N",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "count"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "ZIinV3hVk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "entity_id::tag"
+              ],
+              "type": "tag"
+            }
+          ],
+          "hide": false,
+          "measurement": "dBm",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT count(\"value\") FROM \"autogen\".\"state\" WHERE $timeFilter GROUP BY \"entity_id\"::tag\n",
+          "rawQuery": false,
+          "refId": "O",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "count"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "ZIinV3hVk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "entity_id::tag"
+              ],
+              "type": "tag"
+            }
+          ],
+          "hide": false,
+          "measurement": "hPa",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT count(\"value\") FROM \"autogen\".\"state\" WHERE $timeFilter GROUP BY \"entity_id\"::tag\n",
+          "rawQuery": false,
+          "refId": "P",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "count"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "ZIinV3hVk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "entity_id::tag"
+              ],
+              "type": "tag"
+            }
+          ],
+          "hide": false,
+          "measurement": "hca",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT count(\"value\") FROM \"autogen\".\"state\" WHERE $timeFilter GROUP BY \"entity_id\"::tag\n",
+          "rawQuery": false,
+          "refId": "Q",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "count"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "ZIinV3hVk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "entity_id::tag"
+              ],
+              "type": "tag"
+            }
+          ],
+          "hide": false,
+          "measurement": "in",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT count(\"value\") FROM \"autogen\".\"state\" WHERE $timeFilter GROUP BY \"entity_id\"::tag\n",
+          "rawQuery": false,
+          "refId": "R",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "count"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "ZIinV3hVk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "entity_id::tag"
+              ],
+              "type": "tag"
+            }
+          ],
+          "hide": false,
+          "measurement": "items",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT count(\"value\") FROM \"autogen\".\"state\" WHERE $timeFilter GROUP BY \"entity_id\"::tag\n",
+          "rawQuery": false,
+          "refId": "S",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "count"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "ZIinV3hVk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "entity_id::tag"
+              ],
+              "type": "tag"
+            }
+          ],
+          "hide": false,
+          "measurement": "kB/s",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT count(\"value\") FROM \"autogen\".\"state\" WHERE $timeFilter GROUP BY \"entity_id\"::tag\n",
+          "rawQuery": false,
+          "refId": "T",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "count"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "ZIinV3hVk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "entity_id::tag"
+              ],
+              "type": "tag"
+            }
+          ],
+          "hide": false,
+          "measurement": "kWh",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT count(\"value\") FROM \"autogen\".\"state\" WHERE $timeFilter GROUP BY \"entity_id\"::tag\n",
+          "rawQuery": false,
+          "refId": "U",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "count"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "ZIinV3hVk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "entity_id::tag"
+              ],
+              "type": "tag"
+            }
+          ],
+          "hide": false,
+          "measurement": "kbit/s",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT count(\"value\") FROM \"autogen\".\"state\" WHERE $timeFilter GROUP BY \"entity_id\"::tag\n",
+          "rawQuery": false,
+          "refId": "V",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "count"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "ZIinV3hVk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "entity_id::tag"
+              ],
+              "type": "tag"
+            }
+          ],
+          "hide": false,
+          "measurement": "lx",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT count(\"value\") FROM \"autogen\".\"state\" WHERE $timeFilter GROUP BY \"entity_id\"::tag\n",
+          "rawQuery": false,
+          "refId": "W",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "count"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "ZIinV3hVk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "entity_id::tag"
+              ],
+              "type": "tag"
+            }
+          ],
+          "hide": false,
+          "measurement": "m",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT count(\"value\") FROM \"autogen\".\"state\" WHERE $timeFilter GROUP BY \"entity_id\"::tag\n",
+          "rawQuery": false,
+          "refId": "X",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "count"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "ZIinV3hVk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "entity_id::tag"
+              ],
+              "type": "tag"
+            }
+          ],
+          "hide": false,
+          "measurement": "m/s",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT count(\"value\") FROM \"autogen\".\"state\" WHERE $timeFilter GROUP BY \"entity_id\"::tag\n",
+          "rawQuery": false,
+          "refId": "Y",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "count"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "ZIinV3hVk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "entity_id::tag"
+              ],
+              "type": "tag"
+            }
+          ],
+          "hide": false,
+          "measurement": "mm",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT count(\"value\") FROM \"autogen\".\"state\" WHERE $timeFilter GROUP BY \"entity_id\"::tag\n",
+          "rawQuery": false,
+          "refId": "Z",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "count"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "ZIinV3hVk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "entity_id::tag"
+              ],
+              "type": "tag"
+            }
+          ],
+          "hide": false,
+          "measurement": "mm/s",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT count(\"value\") FROM \"autogen\".\"state\" WHERE $timeFilter GROUP BY \"entity_id\"::tag\n",
+          "rawQuery": false,
+          "refId": "AA",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "count"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "ZIinV3hVk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "entity_id::tag"
+              ],
+              "type": "tag"
+            }
+          ],
+          "hide": false,
+          "measurement": "ms",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT count(\"value\") FROM \"autogen\".\"state\" WHERE $timeFilter GROUP BY \"entity_id\"::tag\n",
+          "rawQuery": false,
+          "refId": "AB",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "count"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "ZIinV3hVk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "entity_id::tag"
+              ],
+              "type": "tag"
+            }
+          ],
+          "hide": false,
+          "measurement": "packets",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT count(\"value\") FROM \"autogen\".\"state\" WHERE $timeFilter GROUP BY \"entity_id\"::tag\n",
+          "rawQuery": false,
+          "refId": "AC",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "count"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "ZIinV3hVk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "entity_id::tag"
+              ],
+              "type": "tag"
+            }
+          ],
+          "hide": false,
+          "measurement": "packets/s",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT count(\"value\") FROM \"autogen\".\"state\" WHERE $timeFilter GROUP BY \"entity_id\"::tag\n",
+          "rawQuery": false,
+          "refId": "AD",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "count"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "ZIinV3hVk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "entity_id::tag"
+              ],
+              "type": "tag"
+            }
+          ],
+          "hide": false,
+          "measurement": "pending update(s)",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT count(\"value\") FROM \"autogen\".\"state\" WHERE $timeFilter GROUP BY \"entity_id\"::tag\n",
+          "rawQuery": false,
+          "refId": "AE",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "count"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "ZIinV3hVk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "entity_id::tag"
+              ],
+              "type": "tag"
+            }
+          ],
+          "hide": false,
+          "measurement": "ppm",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT count(\"value\") FROM \"autogen\".\"state\" WHERE $timeFilter GROUP BY \"entity_id\"::tag\n",
+          "rawQuery": false,
+          "refId": "AF",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "count"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "ZIinV3hVk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "entity_id::tag"
+              ],
+              "type": "tag"
+            }
+          ],
+          "hide": false,
+          "measurement": "s",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT count(\"value\") FROM \"autogen\".\"state\" WHERE $timeFilter GROUP BY \"entity_id\"::tag\n",
+          "rawQuery": false,
+          "refId": "AG",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "count"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "ZIinV3hVk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "entity_id::tag"
+              ],
+              "type": "tag"
+            }
+          ],
+          "hide": false,
+          "measurement": "state",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT count(\"value\") FROM \"autogen\".\"state\" WHERE $timeFilter GROUP BY \"entity_id\"::tag\n",
+          "rawQuery": false,
+          "refId": "AH",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "count"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "ZIinV3hVk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "entity_id::tag"
+              ],
+              "type": "tag"
+            }
+          ],
+          "hide": false,
+          "measurement": "steps",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT count(\"value\") FROM \"autogen\".\"state\" WHERE $timeFilter GROUP BY \"entity_id\"::tag\n",
+          "rawQuery": false,
+          "refId": "AI",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "count"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "ZIinV3hVk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "entity_id::tag"
+              ],
+              "type": "tag"
+            }
+          ],
+          "hide": false,
+          "measurement": "units",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT count(\"value\") FROM \"autogen\".\"state\" WHERE $timeFilter GROUP BY \"entity_id\"::tag\n",
+          "rawQuery": false,
+          "refId": "AJ",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "count"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "ZIinV3hVk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "entity_id::tag"
+              ],
+              "type": "tag"
+            }
+          ],
+          "hide": false,
+          "measurement": "var",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT count(\"value\") FROM \"autogen\".\"state\" WHERE $timeFilter GROUP BY \"entity_id\"::tag\n",
+          "rawQuery": false,
+          "refId": "AK",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "count"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "ZIinV3hVk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "entity_id::tag"
+              ],
+              "type": "tag"
+            }
+          ],
+          "hide": false,
+          "measurement": "°",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT count(\"value\") FROM \"autogen\".\"state\" WHERE $timeFilter GROUP BY \"entity_id\"::tag\n",
+          "rawQuery": false,
+          "refId": "AL",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "count"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "ZIinV3hVk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "entity_id::tag"
+              ],
+              "type": "tag"
+            }
+          ],
+          "hide": false,
+          "measurement": "°C",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT count(\"value\") FROM \"autogen\".\"state\" WHERE $timeFilter GROUP BY \"entity_id\"::tag\n",
+          "rawQuery": false,
+          "refId": "AM",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "count"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "Panel Title",
+      "type": "barchart"
+    }
+  ],
+  "preload": false,
+  "schemaVersion": 40,
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-1y",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "InfluxDB Debug",
+  "uid": "aeb5bjv95bpq8c",
+  "version": 2,
+  "weekStart": ""
+}
