@@ -13,10 +13,17 @@ This rules out a number strategies and practices:
 
 - Don't use Atlassians Branching Model:
   Use GitFlow instead. You want to be fast, so there is no time to let everything rest in a development branch. Every PR merged should be ready for production and if you are not sure if it is ready to deploy yet, it still needs work.
+  If the features you work on are so big that you feel you need an extra branch you should rethink your feature size. 
 
 - Extra Developer Documentation Tools:
   Document in Code or add extra files in the Repository for everything a new team member might need to know.
 
 - Unclear Scopes and no Decisions
   Even if the features you develop are murky af, as even the customer does not know what he wants yet - your team should. So do not decide for no decision.
-  Specify what your inital feature should do (for how many people, with which boundaries) and iterate on that later, there is nobody witholding you from amend a decision.
+  Specify what your inital feature should do (for how many people, with which boundaries) and iterate on that later, there is nobody witholding you from amending a decision, but its crucial for a shared understanding of the capabilities.
+
+
+Every developer should have the core guidelines: 
+
+- Don't assume. Ask!
+  If something is unclear do not wait till you build the feature to ask if thats what somebody wanted ask him directly.
