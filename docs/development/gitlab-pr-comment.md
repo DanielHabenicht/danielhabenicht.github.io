@@ -74,7 +74,11 @@ pr-title-check:
       export PREVIOUS_VERSION=$(semantic-release -c semantic-release.toml version --print-last-released)
       export NEXT_VERSION=$(semantic-release -c semantic-release.toml version --print)
 
-      export MESSAGE_BODY="Merging this PR will induce a version change: \`${PREVIOUS_VERSION}\` -> \`${NEXT_VERSION}\`"
+      if [ -z "${NEXT_VERSION}" ]; then
+        export MESSAGE_BODY="Merging this PR will induce a version change: \`${PREVIOUS_VERSION}\` -> \`${NEXT_VERSION}\`"
+      else
+        export MESSAGE_BODY="Merging this PR will not induce a version change."
+      fi
 
       if [ -z "${NOTE_ID}" ]; then
           echo "Creating version comment"
