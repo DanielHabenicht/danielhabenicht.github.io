@@ -5,8 +5,6 @@ Features:
 - Combined with python-semantic-release it shows the next version. 
 
 ```
-# Check Merge Request title against agreed format
-# From: https://gitlab.com/gitlab-org/gitlab/-/issues/25689#note_1880342279
 pr-title-check:
   stage: test
   image: python:3.11
@@ -52,37 +50,38 @@ pr-title-check:
       # Check if the merge request title matches the pattern
       echo "${DISCUSSION_API}"
       curl --fail --request GET "${DISCUSSION_API}" --header "PRIVATE-TOKEN: $BOT_TOKEN" > notes.json
-      export NOTE_ID=$(cat notes.json | jq -c '.[] | select(.author.name | contains("feadev_pr_comment") ) | .id')
+      export NOTE_ID=$(cat notes.json | jq -c 'first(.[] | select(.author.name | contains("feadev_pr_comment"))) | .id')
       echo -e "NOTE_ID=${NOTE_ID}"
       export MATCH=$(echo "${CI_MERGE_REQUEST_TITLE}" | grep -E "$PATTERN")
       echo "Match: ${MATCH}"
       if [ -z "${MATCH}" ]; then
         echo -e "Merge request title '${CI_MERGE_REQUEST_TITLE}' does not match the agreed format."
         if [ -z "${NOTE_ID}" ]; then
-          echo "{ \"body\": $(echo "$MESSAGE_BODY" | jq -sR .) }"
+          echo "Creating Comment"
           curl --fail --request POST "${DISCUSSION_API}" --header "PRIVATE-TOKEN: $BOT_TOKEN" --header "Content-Type: application/json" --data-raw "{ \"body\": $(echo "$MESSAGE_BODY" | jq -sR .) }"
         else
-           echo "Comment is already added to MR"
+          echo "Updating Comment"
+          curl --fail --request PUT "${DISCUSSION_API}/${NOTE_ID}" --header "PRIVATE-TOKEN: $BOT_TOKEN" --header "Content-Type: application/json" --data-raw "{ \"body\": $(echo "$MESSAGE_BODY" | jq -sR .) }"
         fi
         exit 1
       fi
       
-      git checkout "$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME"
+      git checkout "$CI_MERGE_REQUEST_TARGET_BRANCH_NAME"
       git config --global user.email "you@example.com"
       git config --global user.name "Your Name"
       git commit --allow-empty -m "${CI_MERGE_REQUEST_TITLE}"
-      git log
       pip install python-semantic-release==9.21.0
       export PREVIOUS_VERSION=$(semantic-release -c semantic-release.toml version --print-last-released)
       export NEXT_VERSION=$(semantic-release -c semantic-release.toml version --print)
-      export MESSAGE_BODY="This PR will induce a version change: \`${PREVIOUS_VERSION}\` -> \`${NEXT_VERSION}\`"
+
+      export MESSAGE_BODY="Merging this PR will induce a version change: \`${PREVIOUS_VERSION}\` -> \`${NEXT_VERSION}\`"
 
       if [ -z "${NOTE_ID}" ]; then
-          echo "Updating to version comment"
-          curl --fail --request PUT --header "PRIVATE-TOKEN: $BOT_TOKEN" --url "${DISCUSSION_API}/${NOTE_ID}" --header "Content-Type: application/json" --data-raw "{ \"body\": \"$MESSAGE_BODY\" }"
-      else
           echo "Creating version comment"
-          curl --fail --request POST --header "PRIVATE-TOKEN: $BOT_TOKEN" --url "${DISCUSSION_API}" --header "Content-Type: application/json" --data-raw "{ \"body\": \"$MESSAGE_BODY\" }"
+          curl --fail --request POST "${DISCUSSION_API}" --header "PRIVATE-TOKEN: $BOT_TOKEN" --header "Content-Type: application/json" --data-raw "{ \"body\": \"$MESSAGE_BODY\" }"
+      else
+          echo "Updating to version comment"
+          curl --fail --request PUT "${DISCUSSION_API}/${NOTE_ID}" --header "PRIVATE-TOKEN: $BOT_TOKEN" --header "Content-Type: application/json" --data-raw "{ \"body\": \"$MESSAGE_BODY\" }"
       fi
 
       echo -e "Merge request title pattern check passed."
@@ -90,6 +89,4 @@ pr-title-check:
     - if: $DEVELOPMENT != "true"
       when: never
     - if: $CI_PIPELINE_SOURCE == "merge_request_event"
-
-
 ```
