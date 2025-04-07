@@ -12,7 +12,7 @@ pr-title-check:
     GIT_DEPTH: 0
     # gitlab variable that contains a project token with reporter api access
     BOT_TOKEN: $GITLAB_DISCUSSION_TOKEN
-    DISCUSSION_API: ${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/merge_requests/${CI_MERGE_REQUEST_IID}/notes
+    DISCUSSION_API: ${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/merge_requests/${CI_MERGE_REQUEST_IID}/notes?sort=asc
     # Try it out locally with IFS='' read -r -d '' MESSAGE_BODY <<"EOF" <string> EOF
     MESSAGE_BODY: |-
       We are following the [Conventional Commit Format](https://www.conventionalcommits.org/en/v1.0.0/#summary). Please make sure that your Pull Request title ('${CI_MERGE_REQUEST_TITLE}') conforms to this format, otherwise, it might not be released. Here is a short example: 
