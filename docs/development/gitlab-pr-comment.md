@@ -12,6 +12,7 @@ pr-title-check:
     GIT_DEPTH: 0
     # gitlab variable that contains a project token with reporter api access
     BOT_TOKEN: $GITLAB_DISCUSSION_TOKEN
+    BOT_NAME: pr_comments
     DISCUSSION_API: ${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/merge_requests/${CI_MERGE_REQUEST_IID}/notes?sort=asc
     # Try it out locally with IFS='' read -r -d '' MESSAGE_BODY <<"EOF" <string> EOF
     MESSAGE_BODY: |-
@@ -50,8 +51,9 @@ pr-title-check:
       # Check if the merge request title matches the pattern
       echo "${DISCUSSION_API}"
       curl --fail --request GET "${DISCUSSION_API}" --header "PRIVATE-TOKEN: $BOT_TOKEN" > notes.json
-      export NOTE_ID=$(cat notes.json | jq -c 'first(.[] | select(.author.name | contains("feadev_pr_comment"))) | .id')
-      echo -e "NOTE_ID=${NOTE_ID}"
+      export NOTE_ID=$(cat notes.json | jq --arg BOT_NAME "${BOT_NAME}" -c 'first(.[] | select(.author.name | contains("\($BOT_NAME)"))) | .id')
+
+echo -e "NOTE_ID=${NOTE_ID}"
       export MATCH=$(echo "${CI_MERGE_REQUEST_TITLE}" | grep -E "$PATTERN")
       echo "Match: ${MATCH}"
       if [ -z "${MATCH}" ]; then
