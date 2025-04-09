@@ -13,7 +13,7 @@ pr-title-check:
     # gitlab variable that contains a project token with reporter api access
     BOT_TOKEN: $GITLAB_DISCUSSION_TOKEN
     BOT_NAME: pr_comments
-    DISCUSSION_API: ${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/merge_requests/${CI_MERGE_REQUEST_IID}/notes?sort=asc
+    DISCUSSION_API: ${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/merge_requests/${CI_MERGE_REQUEST_IID}/notes
     # Try it out locally with IFS='' read -r -d '' MESSAGE_BODY <<"EOF" <string> EOF
     MESSAGE_BODY: |-
       We are following the [Conventional Commit Format](https://www.conventionalcommits.org/en/v1.0.0/#summary). Please make sure that your Pull Request title ('${CI_MERGE_REQUEST_TITLE}') conforms to this format, otherwise, it might not be released. Here is a short example: 
@@ -40,7 +40,7 @@ pr-title-check:
     - |
       echo -e "Linting merge request title: ${CI_MERGE_REQUEST_TITLE}"
       # Agreed MR title pattern
-      export PATTERN="^(feat: | feat!: |fix: |fix!: |chore: |chore!: |ci: | refactor: |test: |build: | docs: |perf: |style: )(.+)$"
+      export PATTERN="^(feat: | feat!: |fix: |fix!: |chore: |chore!: |ci: | refactor: |test: |build: | docs: |perf: |style: |revert: )(.+)$"
 
       #Do not lint if prefix is Draft:
       if [[ "${CI_MERGE_REQUEST_TITLE}" == Draft:* ]]; then
@@ -50,7 +50,7 @@ pr-title-check:
 
       # Check if the merge request title matches the pattern
       echo "${DISCUSSION_API}"
-      curl --fail --request GET "${DISCUSSION_API}" --header "PRIVATE-TOKEN: $BOT_TOKEN" > notes.json
+      curl --fail --request GET "${DISCUSSION_API}?sort=asc" --header "PRIVATE-TOKEN: $BOT_TOKEN" > notes.json
       export NOTE_ID=$(cat notes.json | jq --arg BOT_NAME "${BOT_NAME}" -c 'first(.[] | select(.author.name | contains("\($BOT_NAME)"))) | .id')
 
 echo -e "NOTE_ID=${NOTE_ID}"
@@ -86,7 +86,7 @@ echo -e "NOTE_ID=${NOTE_ID}"
           echo "Creating version comment"
           curl --fail --request POST "${DISCUSSION_API}" --header "PRIVATE-TOKEN: $BOT_TOKEN" --header "Content-Type: application/json" --data-raw "{ \"body\": \"$MESSAGE_BODY\" }"
       else
-          echo "Updating to version comment"
+          echo "Updating version comment"
           curl --fail --request PUT "${DISCUSSION_API}/${NOTE_ID}" --header "PRIVATE-TOKEN: $BOT_TOKEN" --header "Content-Type: application/json" --data-raw "{ \"body\": \"$MESSAGE_BODY\" }"
       fi
 
