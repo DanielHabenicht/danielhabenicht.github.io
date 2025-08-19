@@ -16,3 +16,5 @@ https://azurecharts.com/
 https://grep.app/
 
 NotebookLM, 11ElevenLabs
+
+https://github.com/SteveSandersonMS/dotnet-wasi-sdk
