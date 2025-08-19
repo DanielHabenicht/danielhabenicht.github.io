@@ -14,3 +14,5 @@ https://azurecharts.com/
 [Osint framework](https://osintframework.com/)
 
 https://grep.app/
+
+NotebookLM, 11ElevenLabs
