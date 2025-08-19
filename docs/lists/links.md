@@ -4,3 +4,6 @@ https://stackoverflow.com/questions/64618112/asp-net-core-keep-using-the-expired
 
 When and why to use Exceptions:
 https://web.archive.org/web/20190303182328/http://yoda.arachsys.com/csharp/exceptions.html
+
+
+https://www.syntaxsuccess.com/viewarticle/deploying-kubernetes-with-zero-downtime
