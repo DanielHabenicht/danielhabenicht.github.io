@@ -10,3 +10,7 @@ Guides:
 https://brokul.dev/authentication-cookie-lifetime-and-sliding-expiration
 
 https://azurecharts.com/
+
+[Osint framework](https://osintframework.com/)
+
+https://grep.app/
