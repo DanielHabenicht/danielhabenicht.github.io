@@ -171,6 +171,16 @@ sh get-docker.sh
 grafana + prometheus
 - truenas through traefik
 
+### Use extra disk for easier backup
+
+```
+blkid /dev/sdb
+nano /etc/fstab
+# UUID=a417e5df-db6e-461a-bd07-df68e77c6913 /mnt/data/ ext4 defaults 0 0
+systemctl daemon-reload
+mount -a
+```
+
 # Traefik
 
 ```bash
