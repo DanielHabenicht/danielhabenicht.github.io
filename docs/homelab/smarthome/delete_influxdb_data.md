@@ -22,7 +22,9 @@ USE "homeassistant"; DELETE FROM "°" WHERE "entity_id" = 'apollo_mtr_1_cbc324_t
 # Everything presence
 USE "homeassistant"; DELETE FROM "mm" WHERE "entity_id" = 'everything_presence_lite_937010_target_1_distance';
 USE "homeassistant"; DELETE FROM "mm" WHERE "entity_id" = 'everything_presence_lite_937010_target_1_y';
+USE "homeassistant"; DELETE FROM "mm" WHERE "entity_id" = 'everything_presence_lite_937010_target_1_x';
 USE "homeassistant"; DELETE FROM "°" WHERE "entity_id" = 'everything_presence_lite_937010_target_1_angle';
+
 
 # General values
 USE "homeassistant"; DELETE FROM "state" WHERE "entity_id" = 'apollo_mtr_1_cbc324_moving_target_count'
