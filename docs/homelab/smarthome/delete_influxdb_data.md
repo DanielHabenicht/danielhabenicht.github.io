@@ -4,7 +4,7 @@
 
 ![alt text](delete_influxdb_data_image-1.png)
 
-2. Delete unwanted data data series, e.g. for a apollo_mtr_1 sensor. 
+2. Delete unwanted data data series, e.g. for a apollo_mtr_1 sensor. (Explore > Queries > InfluxQL)
 
 ```flux
 # Do it for all zones 1-3
@@ -18,6 +18,11 @@ USE "homeassistant"; DELETE FROM "state" WHERE "entity_id" = 'apollo_mtr_1_cbc32
 USE "homeassistant"; DELETE FROM "state" WHERE "entity_id" = 'apollo_mtr_1_cbc324_zone_1_moving_target_count'
 USE "homeassistant"; DELETE FROM "state" WHERE "entity_id" = 'apollo_mtr_1_cbc324_zone_1_still_target_count'
 USE "homeassistant"; DELETE FROM "°" WHERE "entity_id" = 'apollo_mtr_1_cbc324_target_1_angle'
+
+# Everything presence
+USE "homeassistant"; DELETE FROM "mm" WHERE "entity_id" = 'everything_presence_lite_937010_target_1_distance';
+USE "homeassistant"; DELETE FROM "mm" WHERE "entity_id" = 'everything_presence_lite_937010_target_1_y';
+USE "homeassistant"; DELETE FROM "°" WHERE "entity_id" = 'everything_presence_lite_937010_target_1_angle';
 
 # General values
 USE "homeassistant"; DELETE FROM "state" WHERE "entity_id" = 'apollo_mtr_1_cbc324_moving_target_count'
